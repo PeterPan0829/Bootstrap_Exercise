@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 額外導入 icon 套件 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> -->
+
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js" integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ="
+        crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- 把導覽列放在header比較直觀且方便修改 -->
+    <header>
+        <style>
+            #navbar-toggle-in-header {
+                float: left;
+                margin-right: 0px;
+                margin-left: 15px;
+
+            }
+
+            ._ul {
+                list-style-type: none;
+            }
+
+            ._ul a {
+                list-style-type: none;
+                font-size: 18px;
+                line-height: 1.8em;
+                color: white;
+                /* 直接在這裡對 a 做事不太建議！ */
+            }
+
+            .footer_h5 {
+                font-size: 18px;
+                line-height: 1.8em;
+            }
+
+            .footer_social_links {
+                color: inherit;
+                display: inline-block;
+                padding: 20px;
+                background: lightgray;
+                border-radius: 50%;
+            }
+
+            .footer_social_links_font {
+                width: 30px;
+                font-size: 23px;
+            }
+
+            .thumbnail {
+                padding: 0px;
+            }
+
+            .thumbnail img {
+                border-radius: inherit;
+            }
+        </style>
+        <nav class="navbar navbar-inverse navbar-static-top" style="margin-bottom: 8px">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button id="navbar-toggle-in-header" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">#人生剩力組</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 2</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">Link 3</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="#">Separated link</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row" style="border: 1px solib black;">
+            <div class="col-xs-12" style="padding:0">
+                <img src="http://via.placeholder.com/1920x600" class="img-responsive" style="width:100%;" />
+            </div>
+        </div>
+        <div class="row" style="border: 1px solib black;">
+            <div class="col-xs-12 col-md-6 col-lg-3" style="padding:0">
+                <img src="http://via.placeholder.com/1920x600" class="img-responsive" />
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3" style="padding:0">
+                <img src="http://via.placeholder.com/1920x600" class="img-responsive" />
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3" style="padding:0">
+                <img src="http://via.placeholder.com/1920x600" class="img-responsive" />
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3" style="padding:0">
+                <img src="http://via.placeholder.com/1920x600" class="img-responsive" />
+            </div>
+        </div>
+
+        <!--
+             插入 thumbnail (卡片型元件) 
+             Thumbnail 是放在 a 裡面 <a href="#" class="thumbnail">, 
+             但這裡我們開使用 Custom content所以把 a 改成 div, 然後 href="#" 拿掉.
+        -->
+        <div class="row" style="margin: 56px 0 56px 0; padding: 0 32px 0 32px;">
+            <div class=" col-xs-6 col-md-3 ">
+                <div class="thumbnail">
+                    <img src="http://via.placeholder.com/400x300" alt="... ">
+                    <div class="caption ">
+                        <h3>Thumbnail label</h3>
+                        <div style="margin: 8px;">
+                            <span>Co-Founder：</span>
+                            <span>Peter Pan</span>
+                        </div>
+                        <p>
+                            <a href="# " class="btn btn-success " role="button ">Button</a>
+                            <a href="# " class="btn btn-default " role="button ">Button</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 ">
+                <div class="thumbnail ">
+                    <img src="http://via.placeholder.com/400x300 " alt="... ">
+                    <div class="caption ">
+                        <h3>Thumbnail label</h3>
+                        <div style="margin: 8px;">
+                            <span>投資人</span>
+                        </div>
+
+                        <p>
+                            <a href="# " class="btn btn-primary " role="button ">Button</a>
+                            <a href="# " class="btn btn-default " role="button ">Button</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="clearfix "></div> -->
+            <div class="col-xs-6 col-md-3 ">
+                <div class="thumbnail ">
+                    <img src="http://via.placeholder.com/400x300 " alt="... ">
+                    <div class="caption ">
+                        <h3>Thumbnail label</h3>
+                        <p>...</p>
+                        <p>
+                            <a href="# " class="btn btn-primary " role="button ">Button</a>
+                            <a href="# " class="btn btn-default " role="button ">Button</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 ">
+                <div class="thumbnail ">
+                    <img src="http://via.placeholder.com/400x300 " alt="... ">
+                    <div class="caption ">
+                        <h3>Thumbnail label</h3>
+                        <p>...</p>
+                        <p>
+                            <a href="# " class="btn btn-primary " role="button ">Button</a>
+                            <a href="# " class="btn btn-default " role="button ">Button</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="clearfix "></div> -->
+        </div>
+
+
+
+        <div class="row " style="background:#333; color:white; ">
+            <div class="col-xs-12 " style="padding:0 ">
+                <p>*****footer******</p>
+            </div>
+            <div class="col-xs-12 " style="padding:0 ">
+                <div class="container ">
+                    <div class="row " style="margin:0; ">
+                        <div class="col-xs-6 col-sm-2 ">
+                            <h5 class="footer_h5 ">list 1</h5>
+                            <ul class="_ul ">
+                                <li>
+                                    <a href="# "> link 1 </a>
+                                </li>
+                                <li>
+                                    <a href="# "> link 2 </a>
+                                </li>
+                                <li>
+                                    <a href="# "> link 3 </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-6 col-sm-2 ">
+                            <h5 class="footer_h5 ">list 2</h5>
+                            <ul class="_ul ">
+                                <li>
+                                    <a href="# "> link 1 </a>
+                                </li>
+                                <li>
+                                    <a href="# "> link 2 </a>
+                                </li>
+                                <li>
+                                    <a href="# "> link 3 </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="hidden-xs col-sm-2 ">
+                            <h5 class="footer_h5 ">list 3</h5>
+                            <ul class="_ul ">
+                                <li>
+                                    <a href="# "> link 1 </a>
+                                </li>
+                                <li>
+                                    <a href="# "> link 2 </a>
+                                </li>
+                                <li>
+                                    <a href="# "> link 3 </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="hidden-xs col-sm-2 ">
+                            <ul class="_ul " style="margin-top: 10px; ">
+                                <li>
+                                    <a href="# "> link 1 </a>
+                                </li>
+                                <li>
+                                    <a href="# "> link 2 </a>
+                                </li>
+                                <li>
+                                    <a href="# "> link 3 </a>
+                                </li>
+                                <li>
+                                    <a href="# "> link 4 </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 ">
+                            <!-- 試著去了解這串的意思 -->
+                            <div class="row " style="text-align: center; margin: 32px 0 32px 0; ">
+                                <div class="col-xs-4 ">
+                                    <!-- 一個搜尋的圖示,不一定要用span也可以用 <p></p> 等等標籤,重要的是class！ -->
+                                    <!-- 加上css元素讓佈置更漂亮一點！ -->
+                                    <!-- <a></a> 這裡作到的是當點擊圖示就會直接連結到facebook, 加上targer表示跳出另外一個頁面不是在同個頁面-->
+                                    <a class="footer_social_links " href="https://www.facebook.com " target="_blank ">
+                                        <span class="fa fa-facebook_font " aria-hidden="true ">
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 ">
+                                    <a class="footer_social_links " href="https://www.instagram.com " target="_blank ">
+                                        <span class="fa fa-instagram_font " aria-hidden="true "></span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 ">
+                                    <a class="footer_social_links " href="https://www.github.com " target="_blank ">
+                                        <span class="fa fa-github_font " aria-hidden="true "></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
