@@ -1,1 +1,1 @@
-#This is my learn Bootstrap process
+#This is my first learn Bootstrap and record the process.
